@@ -15,8 +15,26 @@ body {
   background: #EBEF40;
   margin: 16px;
   padding: 16px;
+  display: inline-block;
+  width: 190px;
+  flex-grow: 1;
+  box-sizing: border-box;
+  text-align: left;
 }
 
 .container {
   padding: 0 10%;
+}
+
+.mural{
+  display: flex;
+  flex-wrap: wrap;
+  text-align:center;
+}
+
+@media(min-width: 560px){
+  .cartao {
+    width: 190px;
+    display: inline-block;
+  }
 }
