@@ -7,6 +7,10 @@
   background: #0082c7;
 }
 
+#mudaLayout {
+  display: none;
+}
+
 body {
   background-color: #E8E8E8;
 }
@@ -32,9 +36,24 @@ body {
   text-align:center;
 }
 
+.mural--linhas {
+  flex-direction: column;
+}
+
+.mural--linhas .cartao {
+  flex-basis: auto;
+  width: auto;
+  display: block;
+}
+
+
 @media(min-width: 560px){
   .cartao {
     width: 190px;
+    display: inline-block;
+  }
+
+  #mudaLayout {
     display: inline-block;
   }
 }
