@@ -46,6 +46,16 @@ body {
   display: block;
 }
 
+.cartao--some{
+  opacity: 0;
+  transition: 0.2s ease-in;
+}
+
+.error {
+  text-align: center;
+  color: #F00;
+  display: block;
+}
 
 @media(min-width: 560px){
   .cartao {
