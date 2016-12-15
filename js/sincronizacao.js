@@ -12,8 +12,9 @@
     });
   })
 
-  $("#sync").click(function(){
+  $(document).on("precisaSincronizar", function(){
     let cartoes = [];
+
     $(".cartao").each(function(){
       let cartao = {};
       cartao.conteudo = $(this).find(".cartao-conteudo").html();
@@ -25,9 +26,7 @@
       cartoes : cartoes
     }
 
-    var mauxell = new Mauxell();
-
-    mauxell.ajax({
+    $.ajax({
       url: "https://ceep.herokuapp.com/cartoes/salvar",
       method: "POST",
       data: mural,
@@ -46,11 +45,14 @@
         $("#sync").removeClass("botaoSync--esperando");
       }
     });
-
   });
 
-  $("#sync").click(function(){
+  $(document).on("precisaSincronizar", function(){
     $("#sync").removeClass("botaoSync--sincronizado");
-    $("#sync").addClass("botaoSync--esperando");
+    $("#sync").addClass("botaoSync--esperando")
+  });
+
+  $("#sync").click (function(){
+    $(document).trigger("precisaSincronizar");
   });
 })();
