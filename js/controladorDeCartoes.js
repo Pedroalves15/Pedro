@@ -1,20 +1,6 @@
 let controladorDeCartoes = (function(){
   "use strict"
-  function removeCartao() {
-    var cartao = document.querySelector("#cartao_" + this.getAttribute("data-ref"));
 
-    cartao.classList.add("cartao--some");
-
-    setTimeout(function(){
-      cartao.remove();
-    },400);
-  }
-
-  var botoes = document.querySelectorAll(".opcoesDoCartao-remove");
-
-  for (var i = 0; i < botoes.length; i++){
-    botoes[i].addEventListener("click", removeCartao);
-  };
 
   /* ------AQUI É JS PURO-------*/
   let $novoCartaoConteudo = document.querySelector(".novoCartao-conteudo");
@@ -33,14 +19,7 @@ let controladorDeCartoes = (function(){
     function adicionaCartao (conteudo, cor){
     contador++;
 
-    let botaoRemove = $("<button>").addClass("opcoesDoCartao-remove")
-                                   .addClass("opcoesDoCartao-opcao")
-                                   .attr("data-ref", contador)
-                                   .text("Remover")
-                                   .click(removeCartao);
-
-    let opcoes = $("<div>").addClass("opcoesDoCartao")
-                           .append(botaoRemove);
+    let opcoes = criaOpcoesDoCartao(contador);
 
     let conteudoTag = $("<p>").addClass("cartao-conteudo")
                               .prepend(conteudo);
